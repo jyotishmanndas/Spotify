@@ -9,6 +9,7 @@ const songSlice = createSlice({
     reducers: {
         playSong: (state, action) => {
             state.currentSong = action.payload
+            state.isPlaying = true
         },
         play: (state) => {
             state.isPlaying = true

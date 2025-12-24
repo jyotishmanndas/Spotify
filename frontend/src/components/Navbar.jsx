@@ -3,7 +3,7 @@ import { Search, Home, LogOutIcon } from "lucide-react"
 
 const Navbar = () => {
     return (
-        <div className='h-16 px-10 flex items-center justify-between bg-green-400'>
+        <div className='h-16 px-10 flex items-center justify-between'>
             <div className='h-12 w-12 rounded-full'>
                 <img className='h-full w-full object-cover' src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_White.png" alt="" />
             </div>
