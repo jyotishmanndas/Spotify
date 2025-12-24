@@ -4,7 +4,7 @@ import { Search, Home, LogOutIcon } from "lucide-react"
 const Navbar = () => {
     return (
         <div className='h-16 px-10 flex items-center justify-between'>
-            <div className='h-12 w-12 rounded-full'>
+            <div className='h-11 w-11 rounded-full'>
                 <img className='h-full w-full object-cover' src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_White.png" alt="" />
             </div>
 
@@ -14,7 +14,7 @@ const Navbar = () => {
             </div>
 
             <div>
-                <button className='px-4 py-3 bg-white text-black rounded-full flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform duration-200 group'>
+                <button className='px-4 py-2.5 bg-white text-black rounded-full flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform duration-200 group'>
                     <LogOutIcon className='h-5 w-5 group-hover:scale-110 transition-transform duration-200' />
                     Logout
                 </button>

@@ -1,14 +1,31 @@
-import { ChevronFirst, ChevronLast, Pause, Play, SkipBack, SkipForward, Volume2 } from 'lucide-react'
-import React, { useEffect, useRef } from 'react'
+import { Pause, Play, SkipBack, SkipForward, Volume2 } from 'lucide-react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { pause, play } from '../features/songSlice';
-import { songs } from '../utils/songs';
+import moment from "moment";
 
 const Player = () => {
-    const song = songs;
+    const [currentTime, setCurrentTime] = useState(0);
+    const [duration, setDuration] = useState(0);
+
     const audioref = useRef();
     const dispatch = useDispatch();
     const { currentSong, isPlaying } = useSelector(state => state.song);
+
+    const handleUpdateTime = () => {
+        setCurrentTime(audioref.current.currentTime);
+        setDuration(audioref.current.duration)
+    }
+
+    const formatTime = (time) => {
+        return moment.utc(time * 1000).format("mm:ss");
+    };
+
+    const handleSeekTime = (e) => {
+        const nt = e.target.value;
+        audioref.current.currentTime = nt;
+        setCurrentTime(nt)
+    }
 
     useEffect(() => {
         if (currentSong && isPlaying) {
@@ -37,10 +54,20 @@ const Player = () => {
                     ) : (
                         <Play onClick={() => dispatch(play())} className='h-7 w-7 text-white hover:scale-105 transition' />
                     )}
-                    <SkipForward className="text-gray-400 hover:text-white transition"  />
+                    <SkipForward className="text-gray-400 hover:text-white transition" />
                 </div>
-                <div className='w-full h-1 bg-red-600 rounded-md'>
+                <div className='flex items-center gap-3 w-full text-white'>
+                    <div className="text-xs text-gray-400">
+                        {formatTime(currentTime)}
+                    </div>
 
+                    <div className='flex-1 h-1 rounded-full relative'>
+                        <input min={0} max={duration || 0} value={currentTime} onChange={handleSeekTime} className='absolute h-full w-full rounded-full cursor-pointer' type="range" />
+                    </div>
+
+                    <div className="text-xs text-gray-400">
+                        {formatTime(duration)}
+                    </div>
                 </div>
             </div>
 
@@ -49,7 +76,7 @@ const Player = () => {
                 <input type="range" />
             </div>
 
-            <audio ref={audioref} src={currentSong?.url}></audio>
+            <audio onTimeUpdate={handleUpdateTime} ref={audioref} src={currentSong?.url}></audio>
         </div>
     )
 }
