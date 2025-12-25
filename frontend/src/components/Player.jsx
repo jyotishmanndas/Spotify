@@ -1,15 +1,17 @@
 import { Pause, Play, SkipBack, SkipForward, Volume2 } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { pause, play } from '../features/songSlice';
+import { pause, play, playSong } from '../features/songSlice';
 import moment from "moment";
 import Volume from './Volume';
 import LikeSong from './LikeSong';
+import { songs } from '../utils/songs';
 
 const Player = () => {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
 
+    const song = songs;
     const audioref = useRef();
     const dispatch = useDispatch();
     const { currentSong, isPlaying } = useSelector(state => state.song);
@@ -35,6 +37,18 @@ const Player = () => {
         const nt = e.target.value;
         audioref.current.currentTime = nt;
         setCurrentTime(nt);
+    };
+
+    const handleForward = () => {
+        const length = songs.length;
+        let nextSong = song[currentSong?.id + 1 < length ? currentSong?.id + 1 : 0];
+        dispatch(playSong(nextSong))
+    }
+
+    const handlePreviousSong = () => {
+        const length = songs.length;
+        let previouSong = song[currentSong?.id > 0 ? currentSong?.id - 1 : length - 1]
+        dispatch(playSong(previouSong))
     }
 
     return (
@@ -43,15 +57,15 @@ const Player = () => {
 
             <div className='flex flex-col items-center gap-3 w-[35%]'>
                 <div className='h-full flex items-center justify-center gap-5 cursor-pointer'>
-                    <SkipBack className="text-gray-400 hover:text-white transition" />
+                    <SkipBack onClick={handlePreviousSong} className="text-gray-400 hover:text-white transition cursor-pointer" />
 
                     {isPlaying ? (
                         <Pause onClick={() => dispatch(pause())} className='h-7 w-7 text-white hover:scale-105 transition' />
                     ) : (
                         <Play onClick={() => dispatch(play())} className='h-7 w-7 text-white hover:scale-105 transition' />
                     )}
-                    
-                    <SkipForward className="text-gray-400 hover:text-white transition" />
+
+                    <SkipForward onClick={handleForward} className="text-gray-400 hover:text-white transition cursor-pointer" />
                 </div>
                 <div className='flex items-center gap-3 w-full text-white'>
                     <div className="text-xs text-gray-400">

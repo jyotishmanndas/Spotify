@@ -5,6 +5,7 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import HomeLayout from '../layout/HomeLayout';
 import Songs from '../pages/Songs';
+import Playlist from '../pages/Playlist';
 
 const AppRouter = () => {
     const router = createBrowserRouter([
@@ -23,6 +24,16 @@ const AppRouter = () => {
                 {
                     index: true,
                     element: <Songs />
+                }
+            ]
+        },
+        {
+            path: "/playlist",
+            element: <HomeLayout />,
+            children: [
+                {
+                    index:true,
+                    element: <Playlist />
                 }
             ]
         }

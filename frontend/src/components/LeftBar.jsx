@@ -1,14 +1,15 @@
 import { Heart, Pin } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 
 const LeftBar = () => {
-
+    const navigate = useNavigate();
     const { playlist } = useSelector(state => state.playlistSong)
 
     return (
-        <div className="h-full bg-[#121212] w-[20%] rounded-lg p-5">
-            <div className='flex gap-4'>
+        <div className="h-full bg-[#121212] w-[20%] rounded-lg p-2">
+            <div onClick={() => navigate("/playlist")} className='flex gap-4 hover:bg-[#1F1F1F] transition-colors px-3 py-2 rounded-md cursor-pointer'>
                 <div className="flex items-center justify-center h-14 w-14 rounded-md bg-red-500">
                     <Heart className="text-white" />
                 </div>
@@ -25,12 +26,6 @@ const LeftBar = () => {
                         <span className='font-medium text-[15px]'>{playlist?.length} songs</span>
                     </div>
                 </div>
-            </div>
-
-            <div className='flex-1'>
-                {playlist.map((s) => (
-                    <div key={s.id} className='text-gray-300'>{s.title}</div>
-                ))}
             </div>
         </div>
 
