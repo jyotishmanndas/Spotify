@@ -5,7 +5,7 @@ import SongsCard from '../components/SongsCard'
 
 const Songs = () => {
     return (
-        <div className='flex items-center justify-center gap-3'>
+        <div className='flex items-center justify-center flex-wrap gap-3'>
             {songs.map((song) => (
                 <SongsCard key={song.id} song={song} />
             ))}

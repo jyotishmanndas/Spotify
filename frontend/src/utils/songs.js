@@ -1,26 +1,30 @@
 export const songs = [
     {
         id: 0,
-        name: "Barbaad",
-        singer: "Jubin Nautiyal",
-        url: "./Barbaad.mp3"
+        title: "Saiyaara",
+        artist: "Arjit Singh",
+        songUrl: "./songs/Saiyaara.mp3",
+        img: "./img/saiyaara.jpg"
     },
     {
         id: 1,
-        name: "Desi Kalakaar",
-        singer: "Honey Singh",
-        url: "./Desi-kalakaar.mp3"
+        title: "Barbaad",
+        artist: "Jubin Nautiyal",
+        songUrl: "./songs/Barbaad.mp3",
+        img: "./img/Barbaad.jpg"
     },
     {
         id: 2,
-        name: "Dhurandar",
-        singer: "Hunumankind",
-        url: "./Dhurandhar.mp3"
+        title: "Dhurandhar",
+        artist: "Hanumankind",
+        songUrl: "./songs/Dhurandhar.mp3",
+        img: "./img/dhurandhar.jpg"
     },
     {
         id: 3,
-        name: "Saiyaara",
-        singer: "Arijit Singh",
-        url: "./Saiyaara.mp3"
+        title: "Tune Jo Na Kaha",
+        artist: "Mohit Chauhan",
+        songUrl: "./songs/tune-jo-na-kaha.mp3",
+        img: "./img/New-york.jpg"
     }
 ]

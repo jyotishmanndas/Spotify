@@ -14,7 +14,7 @@ const SongsCard = ({ song }) => {
         <div className="group w-48 p-3 hover:rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer">
             <div className="relative h-44 w-full rounded-lg overflow-hidden shadow-lg">
                 <img
-                    src="https://i.scdn.co/image/ab6761610000e5eb155a680a466ced2ee6679e54"
+                    src={song.img}
                     alt={song.name}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -36,10 +36,10 @@ const SongsCard = ({ song }) => {
 
             <div className="mt-3 space-y-1">
                 <p className="text-sm font-semibold text-white truncate">
-                    {song.name}
+                    {song.title}
                 </p>
                 <p className="text-xs text-gray-400 truncate">
-                    {song.singer}
+                    {song.artist}
                 </p>
             </div>
         </div>
