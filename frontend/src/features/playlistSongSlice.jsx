@@ -11,7 +11,7 @@ const playlistSongSlice = createSlice({
             state.playlist.push(action.payload)
         },
         removeSong: (state, action) => {
-            state.playlist = action.payload
+            state.playlist = state.playlist.filter((s) => s.id !== action.payload)
         }
     }
 })

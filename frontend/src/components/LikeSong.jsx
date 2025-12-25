@@ -1,10 +1,12 @@
-import { PlusCircle } from 'lucide-react';
+import { CircleCheck, PlusCircle } from 'lucide-react';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { likeSong } from '../features/playlistSongSlice';
+import { likeSong, removeSong } from '../features/playlistSongSlice';
 
 const LikeSong = () => {
-    const [like, setIsLike] = useState([]);
+    const [like, setIsLike] = useState(() => {
+        return JSON.parse(localStorage.getItem("playlist")) || []
+    });
 
     const dispatch = useDispatch();
     const { currentSong } = useSelector(state => state.song);
@@ -13,7 +15,16 @@ const LikeSong = () => {
         dispatch(likeSong(currentSong));
         setIsLike([...like, currentSong])
         localStorage.setItem("playlist", JSON.stringify([...like, currentSong]))
+    };
+
+    const removeFromPlaylist = () => {
+        dispatch(removeSong(currentSong.id));
+        const updateLikes = like.filter((s) => s.id !== currentSong.id);
+        setIsLike(updateLikes);
+        localStorage.setItem("playlist", JSON.stringify(updateLikes))
     }
+
+    const isLiked = like.some((s) => s.id === currentSong?.id);
 
     return (
         <div className='flex items-center gap-3 w-[20%]'>
@@ -28,7 +39,11 @@ const LikeSong = () => {
                     </div>
 
                     <div className='ml-5'>
-                        <PlusCircle onClick={handlePlaylist} className='text-white cursor-pointer' size={20} />
+                        {isLiked ? (
+                            <CircleCheck onClick={removeFromPlaylist} className='fill-green-500 cursor-pointer' size={23} />
+                        ) : (
+                            <PlusCircle onClick={handlePlaylist} className='text-gray-400 cursor-pointer' size={20} />
+                        )}
                     </div>
                 </>
             )}

@@ -44,11 +44,13 @@ const Player = () => {
             <div className='flex flex-col items-center gap-3 w-[35%]'>
                 <div className='h-full flex items-center justify-center gap-5 cursor-pointer'>
                     <SkipBack className="text-gray-400 hover:text-white transition" />
+
                     {isPlaying ? (
                         <Pause onClick={() => dispatch(pause())} className='h-7 w-7 text-white hover:scale-105 transition' />
                     ) : (
                         <Play onClick={() => dispatch(play())} className='h-7 w-7 text-white hover:scale-105 transition' />
                     )}
+                    
                     <SkipForward className="text-gray-400 hover:text-white transition" />
                 </div>
                 <div className='flex items-center gap-3 w-full text-white'>

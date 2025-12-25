@@ -26,5 +26,12 @@ export const songs = [
         artist: "Mohit Chauhan",
         songUrl: "./songs/tune-jo-na-kaha.mp3",
         img: "./img/New-york.jpg"
+    },
+    {
+        id: 4,
+        title: "Tere Pyaar Main",
+        artist: "Kaavish",
+        songUrl: "./songs/Tere-Pyaar-Main.mp3",
+        img: "./img/Tere-pyaar-main.jpg"
     }
 ]
