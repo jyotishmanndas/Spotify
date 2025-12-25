@@ -1,8 +1,8 @@
 import React from 'react'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import Login from '../components/Login';
-import Register from '../components/Register';
+import Login from '../components/forms/Login';
+import Register from '../components/forms/Register';
 import HomeLayout from '../layout/HomeLayout';
 import Songs from '../pages/Songs';
 import Playlist from '../pages/Playlist';

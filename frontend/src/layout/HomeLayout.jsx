@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import LeftBar from '../components/LeftBar'
 import { Outlet } from 'react-router'
 import RightBar from '../components/RightBar'
-import Player from '../components/Player'
+import Player from '../components/player/Player'
 
 const HomeLayout = () => {
     return (
@@ -12,7 +12,7 @@ const HomeLayout = () => {
             <div className='h-[80%] flex gap-3 px-2 py-2'>
                 <LeftBar />
 
-                <div className='w-[60%] p-5 rounded-lg bg-[#121212]'>
+                <div className='w-[60%] p-5 rounded-lg bg-[#121212] overflow-y-auto outlet-scroll'>
                     <Outlet />
                 </div>
 

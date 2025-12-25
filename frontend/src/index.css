@@ -4,3 +4,45 @@
     font-family: poppins;
     font-weight: 300;
 } */
+
+.rotate {
+    animation: spin-slow 11s linear infinite;
+    animation-play-state: running;
+}
+
+.paused {
+    animation-play-state: paused;
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.outlet-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.outlet-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.outlet-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+}
+
+.outlet-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+/* Firefox */
+.outlet-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}

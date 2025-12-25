@@ -1,7 +1,7 @@
 import React from 'react'
 import { songs } from '../utils/songs'
-import { Play } from "lucide-react"
-import SongsCard from '../components/SongsCard'
+import SongsCard from "../components/player/SongsCard"
+
 
 const Songs = () => {
     return (

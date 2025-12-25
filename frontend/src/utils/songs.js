@@ -33,5 +33,26 @@ export const songs = [
         artist: "Kaavish",
         songUrl: "./songs/Tere-Pyaar-Main.mp3",
         img: "./img/Tere-pyaar-main.jpg"
+    },
+    {
+        id: 5,
+        title: "Bin Tere",
+        artist: "Shafqat Amanat Ali, Sunidhi Chaudhan",
+        songUrl: "./songs/Bin-Tere.mp3",
+        img: "./img/Bin-Tere.jpg"
+    },
+    {
+        id: 6,
+        title: "Rangi Saari",
+        artist: "Kanishk Seth, Kavita Seth",
+        songUrl: "./songs/Rangi-Saari.mp3",
+        img: "./img/Rangi-Saari.jpg"
+    },
+    {
+        id: 7,
+        title: "Bairiyaa",
+        artist: "Atif Aslam",
+        songUrl: "./songs/Bairiyaa.mp3",
+        img: "./img/Bairiyaa.jpg"
     }
 ]
