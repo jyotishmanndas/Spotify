@@ -11,8 +11,8 @@ const RightBar = () => {
       </div>
 
       <div className='mt-8 flex flex-col'>
-        <span className='text-3xl text-white font-bold'>{currentSong?.title}</span>
-        <span className='text-neutral-400 text-lg hover:text-neutral-200 transition-colors cursor-pointer'>{currentSong?.artist}</span>
+        <span className='text-3xl text-white font-bold'>{currentSong?.title || "No song playing"}</span>
+        <span className='text-neutral-400 text-lg hover:text-neutral-200 transition-colors cursor-pointer'>{currentSong?.artist || "Select a song to play"}</span>
       </div>
     </div>
   )
