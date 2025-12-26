@@ -54,5 +54,33 @@ export const songs = [
         artist: "Atif Aslam",
         songUrl: "./songs/Bairiyaa.mp3",
         img: "./img/Bairiyaa.jpg"
+    },
+    {
+        id: 8,
+        title: "Uff Teri Adaa",
+        artist: "Shankar Mahadevan, Alysaa Mendonsa",
+        songUrl: "./songs/Uff-Teri-Adaa.mp3",
+        img: "./img/Uff-Teri-Adaa.jpg"
+    },
+    {
+        id: 9,
+        title: "Makhna",
+        artist: "Tanishk Bagchi, Asees Kaur",
+        songUrl: "./songs/Makhna.mp3",
+        img: "./img/Makhna.jpg"
+    },
+    {
+        id: 10,
+        title: "Tum Tak",
+        artist: "Javed Ali",
+        songUrl: "./songs/Tum-Tak.mp3",
+        img: "./img/Tum-Tak.jpg"
+    },
+    {
+        id: 11,
+        title: "Raanjhanaa",
+        artist: "Jaswinder Singh, Shiraz Uppal",
+        songUrl: "./songs/Raanjhanaa.mp3",
+        img: "./img/Raanjhanaa.jpg"
     }
 ]

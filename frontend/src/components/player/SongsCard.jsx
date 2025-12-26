@@ -7,8 +7,7 @@ const SongsCard = ({ song }) => {
     const dispatch = useDispatch();
     const { currentSong, isPlaying } = useSelector((state) => state.song);
 
-    const isCurrentSongPlaying =
-        isPlaying && currentSong?.id === song.id;
+    const isCurrentSongPlaying = isPlaying && currentSong?.id === song.id;
 
     return (
         <div className="group w-48 p-3 hover:rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer">

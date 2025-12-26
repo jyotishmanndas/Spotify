@@ -1,11 +1,21 @@
 import React from 'react'
-import { Search, Home, LogOutIcon } from "lucide-react"
+import { Search, Home, LogOutIcon, ChevronRight, ChevronLeft } from "lucide-react"
+import { useNavigate } from 'react-router'
 
 const Navbar = () => {
+    const navigate = useNavigate();
+
     return (
         <div className='h-16 px-10 flex items-center justify-between'>
-            <div className='w-11 rounded-full'>
-                <img className='h-full w-full object-cover' src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_White.png" alt="" />
+            <div className='flex items-center gap-4'>
+                <div className='w-11 rounded-full'>
+                    <img className='h-full w-full object-cover' src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_White.png" alt="" />
+                </div>
+
+                <div className='group flex items-center gap-2'>
+                    <ChevronLeft onClick={() => navigate("/home")} size={30} className='text-neutral-400 hover:text-neutral-200 group-hover:scale-110 transition cursor-pointer' />
+                    <ChevronRight size={30} className='text-neutral-400 hover:text-neutral-200 cursor-pointer' />
+                </div>
             </div>
 
             <div className='w-[30%] h-12 flex items-center relative'>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import moment from "moment";
 import { songs } from '../../utils/songs';
 import LikeSong from './LikeSong';
-import { pause, play } from '../../features/songSlice';
+import { pause, play, playSong } from '../../features/songSlice';
 import Volume from './Volume';
 
 const Player = () => {
@@ -39,7 +39,7 @@ const Player = () => {
         setCurrentTime(nt);
     };
 
-    const handleForward = () => {
+    const handleForwardSong = () => {
         const length = songs.length;
         let nextSong = song[currentSong?.id + 1 < length ? currentSong?.id + 1 : 0];
         dispatch(playSong(nextSong))
@@ -65,7 +65,7 @@ const Player = () => {
                         <Play onClick={() => dispatch(play())} className='h-7 w-7 text-white hover:scale-105 transition' />
                     )}
 
-                    <SkipForward onClick={handleForward} className="text-gray-400 hover:text-white transition cursor-pointer" />
+                    <SkipForward onClick={handleForwardSong} className="text-gray-400 hover:text-white transition cursor-pointer" />
                 </div>
                 <div className='flex items-center gap-3 w-full text-white'>
                     <div className="text-xs text-gray-400">

@@ -5,8 +5,8 @@ import PlayerCard from '../components/player/PlayerCard'
 const Playlist = () => {
   return (
     <div className="flex flex-col">
-      <div className="flex gap-6 p-4 pb-6 bg-gradient-to-b from-[#3a0f2d] to-[#121212]">
-        <div className="w-36 h-36 rounded-md bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center shadow-lg">
+      <div className="flex gap-6 p-4 pb-6 bg-linear-to-b from-[#3a0f2d] to-[#121212]">
+        <div className="w-36 h-36 rounded-md bg-linear-to-br from-red-500 to-pink-600 flex items-center justify-center shadow-lg">
           <Heart strokeWidth={0.5} size={80} className="fill-white text-white" />
         </div>
 
@@ -31,7 +31,7 @@ const Playlist = () => {
       <div className="grid grid-cols-[4fr_3fr_1fr] gap-4 px-5 mt-6 pb-3 border-b border-neutral-700 text-sm text-neutral-400">
         <span>Title</span>
         <span>Album</span>
-        <span className="text-right">Duration</span>
+        <span>Duration</span>
       </div>
 
       <PlayerCard />
