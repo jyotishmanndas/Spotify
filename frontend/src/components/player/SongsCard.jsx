@@ -27,8 +27,8 @@ const SongsCard = ({ song }) => {
                             : dispatch(playSong(song))
                     }
                     className={`absolute bottom-3 right-3 h-12 w-12 rounded-full flex items-center justify-center bg-green-500 text-black shadow-xl transition-all duration-300 ${isCurrentSongPlaying
-                            ? "opacity-100 scale-100"
-                            : "opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 cursor-pointer"} `} >
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 cursor-pointer"} `} >
                     {isCurrentSongPlaying ? <Pause size={20} /> : <Play size={20} />}
                 </button>
             </div>

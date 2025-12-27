@@ -1,8 +1,9 @@
-import React from 'react'
-import { Search, Home, LogOutIcon, ChevronRight, ChevronLeft } from "lucide-react"
+import React, { useState } from 'react'
+import { LogOutIcon, ChevronRight, ChevronLeft } from "lucide-react"
 import { useNavigate } from 'react-router'
 import { useDispatch } from 'react-redux';
 import { logOut } from '../features/authSlice';
+import InputBar from './InputBar';
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -21,10 +22,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className='w-[30%] h-12 flex items-center relative'>
-                <Search className='absolute left-3 text-white' />
-                <input className='w-full h-full rounded-full px-11 bg-[#2A2A2A] text-white' type="text" placeholder='What do you want to play?' />
-            </div>
+            <InputBar />
 
             <div>
                 <button onClick={() => dispatch(logOut())} className='px-4 py-2.5 bg-white text-black rounded-full flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform duration-200 group'>

@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
 
-  const [regUser, setRegUser] = useState(()=>{
+  const [regUser, setRegUser] = useState(() => {
     return JSON.parse(localStorage.getItem("reg-user")) || []
   });
 
   const onSubmit = (data) => {
     setRegUser([...regUser, data])
     localStorage.setItem("reg-user", JSON.stringify([...regUser, data]));
+    toast.success("Registered successfully")
     navigate("/login")
     reset();
   }

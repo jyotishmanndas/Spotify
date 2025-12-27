@@ -12,7 +12,7 @@ const playlistSongSlice = createSlice({
         },
         removeSong: (state, action) => {
             state.playlist = state.playlist.filter((s) => s.id !== action.payload)
-        }
+        },
     }
 })
 

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { setUser } from '../../features/authSlice';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -14,12 +15,15 @@ const Login = () => {
     const onSubmit = (data) => {
         const user = registerUserData.find((u) => u.email === data.email && u.password === data.password);
         if (!user) {
+            toast.error("'Something went wrong")
             return
         }
 
         dispatch(setUser(user));
         localStorage.setItem("login-user", JSON.stringify(user));
-        navigate("/home")
+        toast.success("Login successfull")
+        navigate("/home");
+        reset();
     }
 
     return (
