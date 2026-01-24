@@ -16,6 +16,10 @@ const AppRouter = () => {
             element: <PublicRoute />,
             children: [
                 {
+                    index: true,
+                    element: <Login />
+                },
+                {
                     path: "/login",
                     element: <Login />
                 },
